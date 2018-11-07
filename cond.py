@@ -15,6 +15,7 @@ def CalculateProb(M,N):
         product = np.prod(prelimProbs)
         finalProb = 1 - product
         p[i] = finalProb
+        
     return p
     
     
