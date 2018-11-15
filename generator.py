@@ -1,6 +1,7 @@
 import numpy as np
 import decimal
 import pandas as pd
+from scipy.sparse import lil_matrix, block_diag, csr_matrix
 
 # Generate M x N matrixes
 '''
@@ -15,6 +16,7 @@ np.fill_diagonal(network[:,6:], 0)
 print(network)  
 
 '''
+
 # Number of columns is n
 def gen_network(n):
 
@@ -26,7 +28,7 @@ def gen_network(n):
     network = np.triu(network, 0) 
 
     for i in range(n):
-            np.fill_diagonal(network[:,(i+4 %n):], 0)
+            np.fill_diagonal(network[:,(i+3 %n):], 0)
     return network
     
 

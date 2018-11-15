@@ -7,12 +7,14 @@ import random as rd
 from generator import gen_network
 from generator import gen_states
 from generator import watch
+import Plotting 
 
 #PS, EA, MR
 #read in csv of conditional matrix here. Conditional Matrix contains likelihood that ohter nodes will be infected given
 #an initial condition that represents which nodes are already compromised. Initial condition(s) are in the csv.
 conditional  =  pd.read_csv("net1.csv")
-size = 100
+size = 10
+
 #seperate out M, the probability matrix, and N the Node matrix
 numCol = len(conditional.columns)
 M = gen_network(size)
@@ -58,7 +60,8 @@ print("Number of Steps Taken: ", num_steps)
 
 
 
-
+Plotting.plotMatrix(M)
+Plotting.barChart(num_steps)
 
 
 
