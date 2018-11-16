@@ -28,7 +28,7 @@ def gen_network(n):
     network = np.triu(network, 0) 
 
     for i in range(n):
-            np.fill_diagonal(network[:,(i+3 %n):], 0)
+            np.fill_diagonal(network[:,(i+5 %n):], 0)
     return network
     
 

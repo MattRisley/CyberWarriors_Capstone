@@ -13,7 +13,7 @@ import Plotting
 #read in csv of conditional matrix here. Conditional Matrix contains likelihood that ohter nodes will be infected given
 #an initial condition that represents which nodes are already compromised. Initial condition(s) are in the csv.
 conditional  =  pd.read_csv("net1.csv")
-size = 10
+size = 100
 
 #seperate out M, the probability matrix, and N the Node matrix
 numCol = len(conditional.columns)
@@ -38,7 +38,7 @@ def isCompromised():
     return set(watch_ones[0]).issubset(set(N_ones[0]))
 
 
-n = 10 # Number of iterations
+n = 100 # Number of iterations
 num_steps = []
 for i in range(n):
     #print("Interation: ", i)
