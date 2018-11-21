@@ -24,8 +24,6 @@ print(N)
 initN = N
 
 
-
-
 #Create a list of nodes that the User wants to watch for compromise. 
 #This list will determine how long the simulation will run. 
 Watch = watch(size)
