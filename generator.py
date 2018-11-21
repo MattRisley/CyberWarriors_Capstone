@@ -1,6 +1,7 @@
 import numpy as np
 import decimal
 import pandas as pd
+import random
 from scipy.sparse import lil_matrix, block_diag, csr_matrix
 
 # Generate N x N matrixes
@@ -43,7 +44,8 @@ def CVCMatrix(n):
     network = np.array(network)
 
     network = np.random.choice(scoreVector, n*n)
-    network = np.reshape(network, (n,n), 'F')
+    random.shuffle(network)
+    network = np.reshape(network, (n,n))
 
     return gen_network(network)
 
