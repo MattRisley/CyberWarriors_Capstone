@@ -15,9 +15,6 @@ from generator import gen_states
 from generator import watch
 from generator import CVCMatrix
 
-
-
-
 '''
 Generate a Watch Vector for stopping conditions
 Run Parallel Processes to determine number of steps until compromised state

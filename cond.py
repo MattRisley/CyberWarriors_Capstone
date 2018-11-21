@@ -1,6 +1,10 @@
 import numpy as np
 import pandas as pd
 
+'''
+Calculate the probability of other 
+nodes becoming compromised in the next step
+'''
 def CalculateProb(M,N):
     p = np.zeros(len(N))
     for i in range (0, len(N)):

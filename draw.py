@@ -2,8 +2,7 @@ import numpy as np
 import pandas as pd
 import random as rd
 
-# Calculates random probability
-
+# Calculates random probability 
 def randomDraw(p):
         n = np.zeros(len(p))
         for i in range(len(p)):
