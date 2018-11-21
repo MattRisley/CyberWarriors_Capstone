@@ -3,32 +3,19 @@ import decimal
 import pandas as pd
 from scipy.sparse import lil_matrix, block_diag, csr_matrix
 
-# Generate M x N matrixes
-'''
-n = 10
-network = np.random.rand(n, n)
-network = network.round(decimals=2)
-np.fill_diagonal(network, 0)
-network = np.triu(network, 0) 
-np.fill_diagonal(network[:,4:], 0)
-np.fill_diagonal(network[:,5:], 0)
-np.fill_diagonal(network[:,6:], 0)
-print(network)  
-
-'''
-
+# Generate N x N matrixes
 # Number of columns is n
-def gen_network(n):
-
-    network = np.random.rand(n, n)
+def gen_network(network):
+    n = len(network)
+    #network = np.random.rand(n, n)
     network = network.round(decimals=2)
     np.fill_diagonal(network, 0)
     #for row in network:
     #    row[::4] =0
     network = np.triu(network, 0) 
-
+    num_Diagonals = 3
     for i in range(n):
-            np.fill_diagonal(network[:,(i+5 %n):], 0)
+            np.fill_diagonal(network[:,(i+num_Diagonals %n):], 0)
     return network
     
 
@@ -45,3 +32,22 @@ def watch(n):
     watch[1] = 1 
 
     return watch
+
+def CVCMatrix(n):
+    #Change file name to accomidate other cvc score files
+    #MS10PrivData.csv - Microsoft Windows 10
+    cvcData = pd.read_csv("MS10PrivData.csv")
+    scoreVector = 1- cvcData['Score']*0.10
+
+    network = scoreVector
+    network = np.array(network)
+
+    network = np.random.choice(scoreVector, n*n)
+    network = np.reshape(network, (n,n), 'F')
+
+    return gen_network(network)
+
+
+
+
+

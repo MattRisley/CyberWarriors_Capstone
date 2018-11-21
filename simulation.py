@@ -7,17 +7,18 @@ import random as rd
 from generator import gen_network
 from generator import gen_states
 from generator import watch
+from generator import CVCMatrix
 import Plotting 
 
 #PS, EA, MR
 #read in csv of conditional matrix here. Conditional Matrix contains likelihood that ohter nodes will be infected given
 #an initial condition that represents which nodes are already compromised. Initial condition(s) are in the csv.
-conditional  =  pd.read_csv("net1.csv")
-size = 100
+size = 20
 
 #seperate out M, the probability matrix, and N the Node matrix
-numCol = len(conditional.columns)
-M = gen_network(size)
+#numCol = len(conditional.columns)
+#M = gen_network(size)
+M = CVCMatrix(size)
 N = gen_states(size)
 print(M)
 print(N)
