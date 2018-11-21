@@ -4,15 +4,18 @@ import pandas as pd
 import random
 from scipy.sparse import lil_matrix, block_diag, csr_matrix
 
-# Generate N x N matrixes
-# Number of columns is n
+'''
+Generate Matrix Network with some Diagonals Filled
+'''
 def gen_network(network):
+    '''
+    Use for Random network
+    n is the number of columns
+    network = np.random.rand(n, n)
+    '''
     n = len(network)
-    #network = np.random.rand(n, n)
     network = network.round(decimals=2)
     np.fill_diagonal(network, 0)
-    #for row in network:
-    #    row[::4] =0
     network = np.triu(network, 0) 
     num_Diagonals = len(str(n)) + 1
     for i in range(n):
@@ -24,19 +27,29 @@ def gen_states(n):
     array = np.zeros(n)
     array[0] = 1
     array[1] = 1
-   # return np.random.randint(2, size=n)
-    return array 
-''' Randomly generates the compromised states vector'''
+    return array
+
+'''
+Randomly generates the compromised states vector
+Create a list of nodes that the User wants to watch for compromise. 
+'''
 def watch(n):
     watch =  np.random.randint(2, size=n)
     watch[0] = 1
     watch[1] = 1 
-
     return watch
 
+''' 
+Pull Score data from CVC Data
+
+Read in csv of conditional matrix here. Conditional Matrix contains likelihood 
+that ohter nodes will be infected given an initial condition that represents 
+which nodes are already compromised. 
+
+Change file name to accomidate other cvc score files
+MS10PrivData.csv - Microsoft Windows 10
+'''
 def CVCMatrix(n):
-    #Change file name to accomidate other cvc score files
-    #MS10PrivData.csv - Microsoft Windows 10
 
     cvcData = pd.read_csv("MS10PrivData.csv")
     scoreVector = 1- cvcData['Score']*0.10
