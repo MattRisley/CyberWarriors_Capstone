@@ -14,19 +14,19 @@ def gen_network(network):
     #for row in network:
     #    row[::4] =0
     network = np.triu(network, 0) 
-    num_Diagonals = 3
+    num_Diagonals = len(str(n)) + 1
     for i in range(n):
             np.fill_diagonal(network[:,(i+num_Diagonals %n):], 0)
     return network
     
-
+''' Generate the initial state matrix with first two  '''
 def gen_states(n):
     array = np.zeros(n)
     array[0] = 1
     array[1] = 1
    # return np.random.randint(2, size=n)
     return array 
-
+''' Randomly generates the compromised states vector'''
 def watch(n):
     watch =  np.random.randint(2, size=n)
     watch[0] = 1
@@ -37,7 +37,7 @@ def watch(n):
 def CVCMatrix(n):
     #Change file name to accomidate other cvc score files
     #MS10PrivData.csv - Microsoft Windows 10
-    
+
     cvcData = pd.read_csv("MS10PrivData.csv")
     scoreVector = 1- cvcData['Score']*0.10
 

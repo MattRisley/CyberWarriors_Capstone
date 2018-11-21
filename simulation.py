@@ -39,21 +39,6 @@ def main(M, N, interations):
     num_steps = []
     num_cores = multiprocessing.cpu_count()
     num_steps = Parallel(n_jobs=num_cores)(delayed(parallel_section)(initN, Watch) for i in range(iterations))
-    print("out")
-    '''
-    for i in range(iterations):
-        N = initN
-        count = 0
-        while(not isCompromised(Watch, N)):
-            p = CalculateProb(M,N)
-            for j in range(len(p)):
-                if(N[j] != 1):
-                    N[j] = p[j]
-            N = randomDraw(N)
-            count = count + 1
-        num_steps.append(count)
-    '''
-
     return num_steps
     
 def parallel_section(initN, Watch):
@@ -67,9 +52,7 @@ def parallel_section(initN, Watch):
                 N[j] = p[j]
         N = randomDraw(N)
         count = count + 1
-    print(count)
     return count
-    #num_steps.append(count)
 
 
 def isCompromised(Watch , N):
@@ -95,7 +78,6 @@ if __name__ == '__main__':
     chunksize = 3
     
     num_steps = main(M, N, iterations)
-
 
     print("Number of Steps Taken: ", num_steps)
 
