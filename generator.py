@@ -15,7 +15,7 @@ def gen_network(network):
     '''
     n = len(network)
     network = network.round(decimals=2)
-    np.fill_diagonal(network, 0)
+    np.fill_diagonal(network, 1)
     network = np.triu(network, 0) 
     num_Diagonals = len(str(n)) + 1
     for i in range(n):
