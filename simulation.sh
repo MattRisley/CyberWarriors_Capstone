@@ -1,9 +1,9 @@
 #!/bin/bash
 #
-#PBS -l walltime=00:30:00
+#PBS -l walltime=01:00:00
 #PBS -l nodes=1:ppn=20
 #PBS -W group_list=newriver
-#PBS -q open_q
+#PBS -q dev_q
 #PBS -j oe
 #PBS -A CMDA_Cap_18
 #
