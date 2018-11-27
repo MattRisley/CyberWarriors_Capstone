@@ -14,6 +14,8 @@ module purge
 #
 module load Anaconda
 module load gcc/5.2.0 python/3.5.0
-easy_install --user `cat requirements.txt`
+#
+export PYTHONUSERBASE=/home/mrisley/newriver/python
+#easy_install --user `cat requirements.txt`
 
 python arc_sim.py
