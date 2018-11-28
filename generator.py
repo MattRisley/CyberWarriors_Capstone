@@ -2,17 +2,18 @@ import numpy as np
 import decimal
 import pandas as pd
 import random
-from scipy.sparse import lil_matrix, block_diag, csr_matrix
+from scipy import sparse
+from scipy.sparse import lil_matrix, block_diag, csr_matrix, csc_matrix
 
 '''
 Generate Matrix Network with some Diagonals Filled
-'''
+
 def gen_network(network):
-    '''
+    
     Use for Random network
     n is the number of columns
     network = np.random.rand(n, n)
-    '''
+    
     n = len(network)
     network = network.round(decimals=2)
     np.fill_diagonal(network, 1)
@@ -21,7 +22,8 @@ def gen_network(network):
     for i in range(n):
             np.fill_diagonal(network[:,(i+num_Diagonals %n):], 0)
     return network
-    
+
+'''
 ''' Generate the initial state matrix with first two  '''
 def gen_states(n):
     array = np.zeros(n)
@@ -54,14 +56,30 @@ def CVCMatrix(n):
     cvcData = pd.read_csv("MS10PrivData.csv")
     scoreVector = 1- cvcData['Score']*0.10
 
-    network = scoreVector
-    network = np.array(network)
+    #Creates the random indices (row, col) for were to place data
+    row = np.random.uniform(0,n-1, n*int(n/3))
+    row = np.around(row)
 
-    network = np.random.choice(scoreVector, n*n)
-    random.shuffle(network)
-    network = np.reshape(network, (n,n))
+    col = np.random.uniform(0,n-1, n*int(n/3))
+    col = np.around(col)
 
-    return gen_network(network)
+    data = np.random.choice(scoreVector, n*int(n/3))
+
+    #Shuffles data around to add randomization 
+    random.shuffle(data)
+    #Make a sparse matrix
+    smatrix = sparse.coo_matrix((data,(row,col)),shape=(n,n)).tocsr()
+    network = smatrix.toarray()
+
+    #Organize data 
+    np.fill_diagonal(network, 1)
+    for i in range(n):
+        np.fill_diagonal(network[:,1:], data)
+    network = np.triu(network, 0) 
+
+    #gen_network(network)
+
+    return network
 
 
 

@@ -10,7 +10,6 @@ import multiprocessing
 from draw import randomDraw
 from cond import CalculateProb
 from joblib import Parallel, delayed
-from generator import gen_network
 from generator import gen_states
 from generator import watch
 from generator import CVCMatrix
@@ -72,7 +71,6 @@ if __name__ == '__main__':
     # Generate M matrix and N vector
     M = CVCMatrix(size)
     N = gen_states(size)
-    iterations = size
     print(M)
     print(N)
     

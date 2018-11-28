@@ -10,7 +10,6 @@ import multiprocessing
 from draw import randomDraw
 from cond import CalculateProb
 from joblib import Parallel, delayed
-from generator import gen_network
 from generator import gen_states
 from generator import watch
 from generator import CVCMatrix
@@ -31,6 +30,12 @@ def main(M, N, interations):
     num_steps = []
     num_cores = multiprocessing.cpu_count()
     num_steps = Parallel(n_jobs=num_cores)(delayed(parallel_section)(initN, Watch) for i in range(iterations))
+
+    '''
+    for i in range(0,iterations):
+        value = parallel_section(initN,Watch)
+        num_steps.append(value)
+    '''
     return num_steps
     
 
@@ -69,11 +74,8 @@ if __name__ == '__main__':
     # Generate M matrix and N vector
     M = CVCMatrix(size)
     N = gen_states(size)
-    iterations = size
     print(M)
     print(N)
-    agents = 5
-    chunksize = 3
     
     num_steps = main(M, N, iterations)
 
