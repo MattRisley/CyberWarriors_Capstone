@@ -36,7 +36,7 @@ def main(M, N, interations):
         value = parallel_section(initN,Watch)
         num_steps.append(value)
     '''
-    return num_steps
+    return num_steps, Watch
     
 
 '''Parallelization Of Computing steps for Compromised Network'''
@@ -77,11 +77,11 @@ if __name__ == '__main__':
     print(M)
     print(N)
     
-    num_steps = main(M, N, iterations)
+    num_steps, Watch = main(M, N, iterations)
 
     print("Number of Steps Taken: ", num_steps)
 
-    Plotting.plotMatrix(M)
+    Plotting.plotMatrix(M, Watch)
     Plotting.barChart(num_steps)
 
     print("\n")
