@@ -1,7 +1,7 @@
 #!/bin/bash
 #
-#PBS -l walltime=05:00:00
-#PBS -l nodes=2:ppn=30
+#PBS -l walltime=01:00:00
+#PBS -l nodes=1:ppn=10
 #PBS -W group_list=newriver
 #PBS -q normal_q
 #PBS -j oe

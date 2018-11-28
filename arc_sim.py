@@ -79,8 +79,8 @@ if __name__ == '__main__':
 
     #print("Number of Steps Taken: ", num_steps)
 
-    #Plotting.plotMatrix(M)
-    #Plotting.barChart(num_steps)
+    Plotting.plotMatrix(M)
+    Plotting.barChart(num_steps)
 
     #print("\n")
     #print("Simulation Complete")
