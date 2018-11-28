@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "arc_sim.py", line 73, in <module>
+    M = CVCMatrix(size)
+  File "/home/mrisley/CyberWarriors_Capstone/generator.py", line 60, in CVCMatrix
+    network = np.random.choice(scoreVector, n*n)
+  File "mtrand.pyx", line 1163, in mtrand.RandomState.choice
+  File "mtrand.pyx", line 995, in mtrand.RandomState.randint
+  File "mtrand.pyx", line 996, in mtrand.RandomState.randint
+  File "randint_helpers.pxi", line 253, in mtrand._rand_int64
+MemoryError

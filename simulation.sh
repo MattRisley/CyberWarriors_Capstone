@@ -1,9 +1,9 @@
 #!/bin/bash
 #
-#PBS -l walltime=01:00:00
-#PBS -l nodes=1:ppn=20
+#PBS -l walltime=05:00:00
+#PBS -l nodes=2:ppn=30
 #PBS -W group_list=newriver
-#PBS -q dev_q
+#PBS -q normal_q
 #PBS -j oe
 #PBS -A CMDA_Cap_18
 #
@@ -16,6 +16,6 @@ module load Anaconda
 module load gcc/5.2.0 python/3.5.0
 #
 #export PYTHONUSERBASE=/home/mrisley/newriver/python
-easy_install --user `cat requirements.txt`
+#easy_install --user `cat requirements.txt`
 
 python arc_sim.py

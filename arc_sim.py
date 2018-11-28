@@ -65,8 +65,8 @@ if __name__ == '__main__':
     #print("Running Simulation \n")
     #size = int(input("Input Matrix Size for n x n: "))
     #iterations = int(input("Input the number of iterations you'd like to run: "))
-    size = 1000
-    iterations = 10
+    size = 1000000
+    iterations = 1000
     
 
     # Generate M matrix and N vector
