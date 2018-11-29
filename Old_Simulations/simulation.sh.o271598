@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "arc_sim.py", line 72, in <module>
+    M = CVCMatrix(size)
+  File "/home/mrisley/CyberWarriors_Capstone/generator.py", line 71, in CVCMatrix
+    smatrix = sparse.coo_matrix((data,(row,col)),shape=(n,n)).tocsr()
+  File "/opt/apps/Anaconda/5.2.0/lib/python3.6/site-packages/scipy/sparse/coo.py", line 388, in tocsr
+    row = self.row.astype(idx_dtype, copy=False)
+MemoryError

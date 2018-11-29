@@ -30,7 +30,7 @@ def main(M, N, interations):
     num_steps = []
     num_cores = multiprocessing.cpu_count()
     num_steps = Parallel(n_jobs=num_cores)(delayed(parallel_section)(initN, Watch) for i in range(iterations))
-    return num_steps
+    return num_steps, Watch
     
 
 '''Parallelization Of Computing steps for Compromised Network'''
@@ -65,7 +65,7 @@ if __name__ == '__main__':
     #size = int(input("Input Matrix Size for n x n: "))
     #iterations = int(input("Input the number of iterations you'd like to run: "))
     size = 100000
-    iterations = 1000
+    iterations = 10000
     
 
     # Generate M matrix and N vector
@@ -74,12 +74,12 @@ if __name__ == '__main__':
     print(M)
     print(N)
     
-    num_steps = main(M, N, iterations)
+    num_steps, Watch  = main(M, N, iterations)
     print(num_steps)
 
     #print("Number of Steps Taken: ", num_steps)
 
-    Plotting.plotMatrix(M)
+    #Plotting.plotMatrix(M, Watch)
     Plotting.barChart(num_steps)
 
     #print("\n")
