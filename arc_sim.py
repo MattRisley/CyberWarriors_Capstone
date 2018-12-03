@@ -64,8 +64,8 @@ if __name__ == '__main__':
     #print("Running Simulation \n")
     #size = int(input("Input Matrix Size for n x n: "))
     #iterations = int(input("Input the number of iterations you'd like to run: "))
-    size = 100000
-    iterations = 10000
+    size = 30000
+    iterations = 1000
     
 
     # Generate M matrix and N vector
@@ -80,7 +80,7 @@ if __name__ == '__main__':
     #print("Number of Steps Taken: ", num_steps)
 
     #Plotting.plotMatrix(M, Watch)
-    Plotting.barChart(num_steps)
+   	#Plotting.barChart(num_steps)
 
     #print("\n")
     #print("Simulation Complete")
