@@ -65,3 +65,4 @@ def barChart(steps_vector):
     plt.tight_layout()
 
     plt.savefig('Network.png', bbox_inches='tight')
+
