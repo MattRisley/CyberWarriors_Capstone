@@ -70,7 +70,7 @@ if __name__ == '__main__':
     
 
     # Generate M matrix and N vector
-    f = "MS10PrivData"
+    f = "MacOSPrivData"
     M = CVCMatrix(size,f)
     N = gen_states(size)
     print(M)
