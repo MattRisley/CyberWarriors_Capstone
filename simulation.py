@@ -73,7 +73,8 @@ if __name__ == '__main__':
     iterations = int(input("Input the number of iterations you'd like to run: "))
 
     # Generate M matrix and N vector
-    M = CVCMatrix(size)
+    f = "MS10PrivData"
+    M = CVCMatrix(size, f)
     N = gen_states(size)
     print(M)
     print(N)
@@ -85,7 +86,7 @@ if __name__ == '__main__':
 
     Plotting.plotMatrix(M, Watch)
     Plotting.barChart(num_steps)
-    save(num_steps)
+    save(num_steps, f)
 
     print("\n")
     print("Simulation Complete")

@@ -51,9 +51,9 @@ which nodes are already compromised.
 Change file name to accomidate other cvc score files
 MS10PrivData.csv - Microsoft Windows 10
 '''
-def CVCMatrix(n):
-
-    cvcData = pd.read_csv("MS10PrivData.csv")
+def CVCMatrix(n, f):
+    
+    cvcData = pd.read_csv(f+'.csv')
     scoreVector = 1- cvcData['Score']*0.10
 
     #Creates the random indices (row, col) for were to place data

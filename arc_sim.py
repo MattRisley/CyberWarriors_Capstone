@@ -70,13 +70,14 @@ if __name__ == '__main__':
     
 
     # Generate M matrix and N vector
-    M = CVCMatrix(size)
+    f = "MS10PrivData"
+    M = CVCMatrix(size,f)
     N = gen_states(size)
     print(M)
     print(N)
     
     num_steps, Watch  = main(M, N, iterations)
-    save(num_steps)
+    save(num_steps,f)
     print(num_steps)
     print ("Done")
 
