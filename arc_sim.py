@@ -7,12 +7,18 @@ import sys
 import warnings
 import Plotting 
 import multiprocessing
-from draw import randomDraw
-from cond import CalculateProb
+from draw import *
+from cond import *
+from saveFile import *
+from generator import * 
 from joblib import Parallel, delayed
-from generator import gen_states
-from generator import watch
-from generator import CVCMatrix
+#from draw import randomDraw
+#from cond import CalculateProb
+#from joblib import Parallel, delayed
+#from generator import gen_states
+#from generator import watch
+#from generator import CVCMatrix
+
 
 '''
 Generate a Watch Vector for stopping conditions
@@ -75,15 +81,11 @@ if __name__ == '__main__':
     print(N)
     
     num_steps, Watch  = main(M, N, iterations)
+    save(num_steps)
     print(num_steps)
+    print ("Done")
 
-    #print("Number of Steps Taken: ", num_steps)
 
-    #Plotting.plotMatrix(M, Watch)
-   	#Plotting.barChart(num_steps)
-
-    #print("\n")
-    #print("Simulation Complete")
 
 
 

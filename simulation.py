@@ -13,6 +13,7 @@ from joblib import Parallel, delayed
 from generator import gen_states
 from generator import watch
 from generator import CVCMatrix
+from saveFile import *
 
 '''
 Generate a Watch Vector for stopping conditions
@@ -80,9 +81,11 @@ if __name__ == '__main__':
     num_steps, Watch = main(M, N, iterations)
 
     print("Number of Steps Taken: ", num_steps)
+    
 
     Plotting.plotMatrix(M, Watch)
     Plotting.barChart(num_steps)
+    save(num_steps)
 
     print("\n")
     print("Simulation Complete")
