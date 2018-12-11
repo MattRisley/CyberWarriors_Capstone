@@ -45,7 +45,7 @@ def plotMatrix(M,Watch):
 ''' Generate Bar Chart based off the steps taken'''
 def barChart(steps_vector):
 
-    plt.subplot(1,3,2)
+    #plt.subplot(1,3,2)
     plt.hist(steps_vector, density=1)
     sns.distplot(steps_vector, hist= False)
     
@@ -60,7 +60,7 @@ def barChart(steps_vector):
     vector_mode = stats.mode(steps_vector)
     descriptiveStats = "Number of elements: {0:d}".format(n) + "\n" + "Minimum: {0:d}".format(min_max[0]) + "\n" + "Maximum: {0:d}".format(min_max[1]) + "\n" + "Mean: {0:4.3f}".format(mean) + "\n" + "Mode: {0:d}".format(vector_mode[0][0]) + "\n" + "Variance: {0:4.3f}".format(var) + "\n" + "Standard Deviation: {0:4.3f}".format(sd)
 
-    plt.figtext(0.65, 0.1, descriptiveStats)
+    plt.figtext(0.65, 0.65, descriptiveStats)
     
     plt.tight_layout()
 

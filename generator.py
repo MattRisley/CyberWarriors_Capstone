@@ -7,7 +7,6 @@ from scipy.sparse import lil_matrix, block_diag, csr_matrix, csc_matrix
 
 '''
 Generate Matrix Network with some Diagonals Filled
-
 def gen_network(network):
     
     Use for Random network
@@ -22,8 +21,8 @@ def gen_network(network):
     for i in range(n):
             np.fill_diagonal(network[:,(i+num_Diagonals %n):], 0)
     return network
-
 '''
+
 ''' Generate the initial state matrix with first two  '''
 def gen_states(n):
     array = np.zeros(n)
