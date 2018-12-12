@@ -2,6 +2,13 @@
 
 CMDA 4864 Capstone Project - Modeling the Risk of a Compromised Network Through Privilege Escalation 
 
+
+## Report and Analysis
+
+Please refer to our report to understand the model we came up with and the analysis we performed. 
+
+`/Report/Final_Project_Report.pdf`
+
 ## To Run Simulation on Local Machine
 
 1. Check python and pip are up-to-date.
