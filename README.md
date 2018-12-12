@@ -21,3 +21,7 @@ Make sure pip is updated
 3. You're Ready! Run the simulation.
 
 `python3 simulation.py`
+
+4. To run the simulation on more advanced machines like a super computer run the following script.
+
+`simulation.sh`
